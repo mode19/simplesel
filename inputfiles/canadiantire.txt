@@ -1,0 +1,21 @@
+URL|http://www.canadiantire.ca
+QUERYATTRIBUTE|//select|text
+CLICK|//a[contains(., 'Tires & Wheels')]
+
+WAITFOR|(//select[contains(@title, 'Select Year')])[2]
+SELECT|(//select[contains(@title, 'Select Year')])[2]|BYTEXT|2006
+
+WAITFOR|(//select[contains(., 'Make')])[2]
+SELECT|(//select[contains(., 'Make')])[2]|BYTEXT|Chevrolet
+
+WAITFOR|(//select[contains(., 'Model')])[2]
+SELECT|(//select[contains(., 'Model')])[2]|BYTEXT|Malibu
+
+WAITFOR|(//select[contains(., 'Body')])[2]
+SELECT|(//select[contains(., 'Body')])[2]|BYTEXT|4 Dr Sedan
+
+WAITFOR|(//select[contains(., 'Options')])[2]
+SELECT|(//select[contains(., 'Options')])[2]|BYTEXT|LT
+
+WAITFOR|(//button[contains(.,'GO')])[2]
+CLICK|(//button[contains(.,'GO')])[2]

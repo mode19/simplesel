@@ -11,42 +11,25 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.imran.guitester.Context;
 import com.imran.guitester.utils.BySplitter;
 
-public class FindFirstVisible extends AbstractSelectorExpression {
+public class FindElements extends AbstractExpression {
 
 	WebElement result = null;;
 	
-	public FindFirstVisible( String selector) {
-		super( selector );
+	public FindElements() {
+		super();
 	}
 
 	@Override
 	public void interpretImpl(Context ctx) {
-		
-		WebDriverWait wait = new WebDriverWait( ctx.getDriver(), 5000);
-		
-		//wait.until( ExpectedConditions.elementToBeClickable( new BySplitter(selector)));
-		
-		List<WebElement> list = ctx.getDriver().findElements( new BySplitter(selector) );
+		List<WebElement> list = ctx.getDriver().findElements( new BySplitter("//input") );
 
 		if( list != null ) {
 			for( WebElement e : list ) {
 				if( e.isDisplayed() ) {
-					result = e;
-					return;
+					System.out.println( e.toString());
 				}
 			}
 		}
 	}
 
-	public WebElement getResult() {
-		return result;
-	}
-
-	public void setResult(WebElement result) {
-		this.result = result;
-	}
-
-	
-
-	
 }

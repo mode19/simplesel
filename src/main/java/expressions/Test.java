@@ -1,5 +1,6 @@
 package expressions;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -20,7 +21,8 @@ public class Test extends AbstractExpression {
 		System.out.println( "TEST: " + selector );
 		System.out.println( "________________________________________________________________________________");
 		List<WebElement> list = ctx.getDriver().findElements( new BySplitter( selector ));
-	
+
+		System.out.println( "Source=" + ctx.getDriver().getPageSource() );
 		if( list != null ) {
 			System.out.println( "Returned " + list.size() + " elements" );
 			for( WebElement e : list ) {
@@ -33,15 +35,19 @@ public class Test extends AbstractExpression {
 				System.out.println( " * isDisplayed=" + e.isDisplayed() );
 				System.out.println( " * isEnabled=" + e.isEnabled() );
 				System.out.println( " * isSelected=" + e.isSelected() );
+				System.out.println( " * attribute[href]=" + e.getAttribute("href") );
 				System.out.println( " * attribute[placeholder]=" + e.getAttribute("placeholder") );
 				System.out.println( " * attribute[text]=" + e.getAttribute("text") );
 				System.out.println( " * attribute[value]=" + e.getAttribute("value") );
+				System.out.println( "_done test______________________________________________________________________");
 			}
 		} else {
 			System.out.println( "No elements (null) returned" );
 		}
 		
 	}
+
+
 
 	
 }

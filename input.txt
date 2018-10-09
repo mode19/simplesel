@@ -1,11 +1,8 @@
-URL|http://localhost:8080
-TEST|.md-icon-button
-CLICK|.md-icon-button
-TEST|//span[contains(text(), "Add new Textbox")]
-CLICK|//span[contains(text(), "Add new Textbox")]
-TEST|//h2[contains(text(),"Object Type:UCDocument")]
-TEST|//textarea
-TEST|textarea
-TEST|#input_12
-SETTEXT|#input_12|@startuml\nSystem1 -> System2: Authentication Request\n@enduml
-//QUIT|bye
+URL|http://www.canadiantire.ca
+QUERYATTRIBUTE|//select|text
+CLICK|//a[contains(., 'Tires & Wheels')]
+
+WAITFOR|//select[contains(., 'Year')]
+QUERYATTRIBUTE|//select[contains(.,'Year')]|enabled
+TEST|//select[contains(.,'Year')]
+

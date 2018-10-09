@@ -2,6 +2,7 @@ package expressions;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -30,12 +31,15 @@ public abstract class AbstractExpression {
 	}
 
 	public static boolean hasQuit(WebDriver driver) {
-	    return ((RemoteWebDriver)driver).getSessionId() == null;
+		if( driver != null ) {
+			return ((RemoteWebDriver)driver).getSessionId() == null;
+		} else {
+			return true;
+		}
 	}
 	
 	public void afterInterpret( Context ctx )
 	{
-		System.out.println( "afterInterpret:" + this.getClass().getSimpleName() );
 		int c = ctx.incCounter();
 	
 		if( !hasQuit(ctx.getDriver()) ) {

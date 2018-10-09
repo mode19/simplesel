@@ -19,7 +19,7 @@ public class BySplitter extends By {
 	}
 
 	private boolean isXpath( String searchStr) {
-		return searchStr.startsWith("//");
+		return searchStr.startsWith("//") || searchStr.startsWith( "xpath=" ) || searchStr.startsWith("(//");
 	}
 
 	@Override

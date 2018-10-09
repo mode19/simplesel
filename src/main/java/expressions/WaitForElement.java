@@ -1,5 +1,8 @@
 package expressions;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,12 +19,10 @@ public class WaitForElement extends AbstractSelectorExpression {
 	@Override
 	public void interpretImpl(Context ctx) {
 		WebDriverWait wait = new WebDriverWait(ctx.getDriver(), 10);
-		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(new BySplitter( selector)));	
 		
-		if( element == null ) {
-			System.out.println( "Element not found" );
-		}
+		WebElement el = wait.until( ExpectedConditions.visibilityOfElementLocated(new BySplitter(selector)));
 	}
+
 
 	
 }

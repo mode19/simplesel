@@ -11,42 +11,28 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.imran.guitester.Context;
 import com.imran.guitester.utils.BySplitter;
 
-public class FindFirstVisible extends AbstractSelectorExpression {
+public class QueryAttributes extends AbstractExpression {
 
-	WebElement result = null;;
-	
-	public FindFirstVisible( String selector) {
-		super( selector );
+	private String selector = "";
+	private String attributeName = "";
+
+	public QueryAttributes(String selector, String attributeName) {
+		super();
+		this.selector = selector;
+		this.attributeName = attributeName;
 	}
 
 	@Override
 	public void interpretImpl(Context ctx) {
-		
-		WebDriverWait wait = new WebDriverWait( ctx.getDriver(), 5000);
-		
-		//wait.until( ExpectedConditions.elementToBeClickable( new BySplitter(selector)));
-		
 		List<WebElement> list = ctx.getDriver().findElements( new BySplitter(selector) );
 
 		if( list != null ) {
 			for( WebElement e : list ) {
 				if( e.isDisplayed() ) {
-					result = e;
-					return;
+					System.out.println( e.getTagName() + ",id=" + e.getAttribute("id") + ",text=" + e.getText() + "," + attributeName + "=" + e.getAttribute(attributeName));
 				}
 			}
 		}
 	}
 
-	public WebElement getResult() {
-		return result;
-	}
-
-	public void setResult(WebElement result) {
-		this.result = result;
-	}
-
-	
-
-	
 }
