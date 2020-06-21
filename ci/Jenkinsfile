@@ -4,9 +4,11 @@ pipeline {
     }
     stages {
         stage('Build') { 
-            ecs {
-                inheritFrom 'ecs-agent'
-                image 'myjenkins-inbound'
+            agent {
+                ecs {
+                   inheritFrom 'ecs-agent'
+                   image 'myjenkins-inbound'
+                }
             }
             steps {
                 sh 'mvn -B -DskipTests clean package' 
