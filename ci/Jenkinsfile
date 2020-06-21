@@ -7,7 +7,7 @@ pipeline {
             agent {
                 ecs {
                    inheritFrom 'ecs-agent'
-                   image 'imranhomedocker/myjenkins-inbound:01'
+                   image 'imranhomedocker/myjenkins-inbound:0.1'
                 }
             }
             steps {
