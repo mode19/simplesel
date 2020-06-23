@@ -1,15 +1,12 @@
 pipeline {
-    agent {
-        label 'ecs-agent'
-    }
+        agent {
+            ecs {
+                inheritFrom 'ecs-agent'
+                image 'imranhomedocker/myjenkins-inbound:latest'
+            }
+        }
     stages {
         stage('Build') { 
-            agent {
-                ecs {
-                   inheritFrom 'ecs-agent'
-                   image 'imranhomedocker/myjenkins-inbound:latest'
-                }
-            }
             steps {
                 sh 'mvn -B -DskipTests clean package' 
             }
