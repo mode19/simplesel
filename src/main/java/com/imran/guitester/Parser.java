@@ -6,6 +6,7 @@ import com.imran.guitester.exceptions.UnknownCommandException;
 import expressions.AbstractExpression;
 import expressions.Block;
 import expressions.Click;
+import expressions.Download;
 import expressions.FindElements;
 import expressions.FindFirstVisible;
 import expressions.FindXPath;
@@ -54,6 +55,9 @@ public class Parser {
 			} else if( cmdName.equalsIgnoreCase( "SETTEXT")) {
 				expectParams( params, 3);
 				expr = new SetText( params[1], params[2] );
+			} else if( cmdName.equalsIgnoreCase( "DOWNLOAD")) {
+				expectParams( params, 3);
+				expr = new Download( params[1], params[2] );
 			} else if( cmdName.equalsIgnoreCase( "TEST")) {
 				expectParams( params, 2);
 				expr = new Test( params[1] );

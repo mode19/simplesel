@@ -1,0 +1,2 @@
+URL|https://flyers.nofrills.ca/flyers/nofrills?type=1&store_code=3643&locale=en
+DOWNLOAD|//div[@role='button' and contains(@data-href, 'pdf')]|filename.pdf

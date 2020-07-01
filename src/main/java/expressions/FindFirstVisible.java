@@ -22,7 +22,7 @@ public class FindFirstVisible extends AbstractSelectorExpression {
 	@Override
 	public void interpretImpl(Context ctx) {
 		
-		WebDriverWait wait = new WebDriverWait( ctx.getDriver(), 5000);
+		//WebDriverWait wait = new WebDriverWait( ctx.getDriver(), 5000);
 		
 		//wait.until( ExpectedConditions.elementToBeClickable( new BySplitter(selector)));
 		

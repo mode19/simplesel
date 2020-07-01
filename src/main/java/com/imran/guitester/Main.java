@@ -21,9 +21,12 @@ public class Main {
 			System.exit(-1);
 		}
 		
+		try {
+		
 		String inputScriptFileName = args[0];
 
 		String inputStr = FileUtils.readFileToString( new File( inputScriptFileName ) );
+        //WebDriver driver = WebdriverFactory.getBrowser("Firefox" );
         WebDriver driver = WebdriverFactory.getBrowser("Firefox" );
         
 		Context ctx = new Context();
@@ -38,6 +41,10 @@ public class Main {
 		cmd.executeScript(inputStr);
 		
 		cmd.startCommandLoop();
+		} catch(Exception e ) {
+			e.printStackTrace();
+			System.out.println( "ERROR:" + e.getMessage());
+		}
 	}
 
 }
