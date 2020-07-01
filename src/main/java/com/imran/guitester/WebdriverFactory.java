@@ -30,8 +30,8 @@ public class WebdriverFactory {
 	        //profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/pdf");
 	        //profile.setPreference("browser.download.folderList", 2);
 	        //profile.setPreference("browser.download.dir", '.');
-	        ProfilesIni profileIni = new ProfilesIni();
-	        FirefoxProfile profile = profileIni.getProfile("default");
+//	        ProfilesIni profileIni = new ProfilesIni();
+//	        FirefoxProfile profile = profileIni.getProfile("default");
 
 	        String mimeTypes = "application/pdf";
 	        //profile.setPreference("browser.preferences.instantApply",true);
@@ -40,15 +40,15 @@ public class WebdriverFactory {
 	        //profile.setPreference("browser.download.manager.showWhenStarting",false);
 	        //profile.setPreference("browser.download.folderList",0);
 
-	        profile.setPreference("browser.download.folderList", 2);
-	        profile.setPreference("browser.download.manager.showWhenStarting", false);
-	        profile.setPreference("browser.helperApps.alwaysAsk.force", false);
-	        profile.setPreference("browser.helperApps.neverAsk.saveToDisk", mimeTypes);
-	        profile.setPreference("browser.download.manager.focusWhenStarting",false);
-	        profile.setPreference("browser.download.manager.useWindow", false);
-	        profile.setPreference("browser.download.manager.showAlertOnComplete", false);
+//	        profile.setPreference("browser.download.folderList", 2);
+//	        profile.setPreference("browser.download.manager.showWhenStarting", false);
+//	        profile.setPreference("browser.helperApps.alwaysAsk.force", false);
+//	        profile.setPreference("browser.helperApps.neverAsk.saveToDisk", mimeTypes);
+//	        profile.setPreference("browser.download.manager.focusWhenStarting",false);
+//	        profile.setPreference("browser.download.manager.useWindow", false);
+//	        profile.setPreference("browser.download.manager.showAlertOnComplete", false);
 	        FirefoxOptions options = new FirefoxOptions();
-	        options.setProfile(profile);
+//	        options.setProfile(profile);
 	        //System.getProperties().put("webdriver.log.driver", "FINE");
 
 	        DesiredCapabilities capabilities = DesiredCapabilities.firefox();

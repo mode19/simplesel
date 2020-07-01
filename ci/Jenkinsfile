@@ -1,8 +1,7 @@
 pipeline {
         agent {
             ecs {
-                inheritFrom 'ecs-agent-firefox'
-                image 'imranhomedocker/myjenkins-inbound:latest'
+                label 'ecs-agent-firefox'
             }
         }
     stages {
