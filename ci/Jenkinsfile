@@ -8,9 +8,11 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                sh """
+                    mvn -B -DskipTests clean package'
             
-                java -jar ./target/GuiTester.jar scripts/nofrills_flyer.txt
+                    java -jar ./target/GuiTester.jar scripts/nofrills_flyer.txt
+                """
             }
         }
     }
