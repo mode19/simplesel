@@ -1,6 +1,6 @@
 pipeline {
         agent {
-            label 'ecs-agent-firefox:16'
+            label 'ecs-agent-firefox"
         }
     stages {
         stage('Build') { 
