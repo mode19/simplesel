@@ -11,7 +11,7 @@ pipeline {
                     set +e 
                     curl -v   http://localhost:4444/wd/hub
                     curl -v   http://127.0.0.1:4444/wd/hub
-                    curl -v   http://standalone-firefox-debug:4444/wd/hub
+                    curl -v   http://firefox:4444/wd/hub
                     java -jar ./target/GuiTester.jar scripts/nofrills_flyer.txt
                 """
             }
