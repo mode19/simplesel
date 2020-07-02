@@ -9,15 +9,17 @@ pipeline {
                     mvn -B -DskipTests clean package
                     java -jar ./target/GuiTester.jar scripts/nofrills_flyer.txt
                 """
-                step {
-                    def exists = fileExists 'filename.pdf'
-                    if (exists) {
-                        emailext attachmentsPattern: 'filename.pdf', body: 'No frills flyer attached',
-                            subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER}",
-                            mimeType: 'text/html',to: "imran.k01@gmail.com"
-                    } else {
-                        echo "ERROR: filenname.pdf not found."
-                    }
+           }
+        }
+        stage('Email') {
+            steps {
+                def exists = fileExists 'filename.pdf'
+                if (exists) {
+                    emailext attachmentsPattern: 'filename.pdf', body: 'No frills flyer attached',
+                        subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER}",
+                        mimeType: 'text/html',to: "imran.k01@gmail.com"
+                } else {
+                    echo "ERROR: filenname.pdf not found."
                 }
             }
         }
