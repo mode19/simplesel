@@ -18,7 +18,7 @@ pipeline {
                     if (exists) {
                         emailext attachmentsPattern: 'filename.pdf', body: 'No frills flyer attached',
                             subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER}",
-                            mimeType: 'text/html',to: "imran.k01@gmail.com"
+                            mimeType: 'text/html',from: "imran.k01@gmail.com", to: "imran.k01@gmail.com"
                     } else {
                         echo "ERROR: filenname.pdf not found."
                     }
