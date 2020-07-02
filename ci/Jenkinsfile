@@ -6,16 +6,13 @@ pipeline {
         stage('Build') { 
             steps {
                 sh """
-                    ls -la
                     mvn -B -DskipTests clean package
-                    #temporary ignore errors
-                    set +e 
-                    curl -v   http://localhost:4444/wd/hub
-                    curl -v   http://127.0.0.1:4444/wd/hub
-                    curl -v   http://firefox:4444/wd/hub
                     java -jar ./target/GuiTester.jar scripts/nofrills_flyer.txt
-                    ls -la
                 """
+
+                emailext attachmentsPattern: 'filename.pdf', body: 'No frills flyer attached',
+                    subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER}",
+                    mimeType: 'text/html',to: "imran.k01@gmail.com"
             }
         }
     }
