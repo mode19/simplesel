@@ -59,7 +59,7 @@ public class WebdriverFactory {
 	        //capabilities.setCapability(FirefoxDriver.PROFILE, profile);
 
 			try {
-				driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"),capabilities);
+				driver = new RemoteWebDriver(new URL("http://firefox:4444/wd/hub"),capabilities);
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
